@@ -1,0 +1,25 @@
+.dialogs {
+  padding: 0px 40px 0px 30px;
+  position: relative;
+}
+
+.dialogs::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  right: 0px;
+}
+.dialogs__items {
+  padding: 20px 0px;
+}
+
+.dialogs-items__lint {
+  text-decoration: none;
+  color: #000;
+}
+
+.dialogs-items__lint.active {
+  color:maroon;
+}

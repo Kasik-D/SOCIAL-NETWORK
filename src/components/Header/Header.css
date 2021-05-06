@@ -1,0 +1,21 @@
+.header {
+  grid-area: header;
+  background-color: rgb(255, 216, 126);
+  border-bottom: 3px solid rgb(179, 63, 76);
+  display: flex;
+  justify-content: center;
+}
+
+.header__text{
+  font-family: "Noto Sans JP", sans-serif;
+  color: rgb(179, 63, 76);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-self: center;
+  text-shadow: 1px 1px 3px #3F52A0;
+}

@@ -1,0 +1,8 @@
+.dialog__photo {
+  
+}
+
+.dialog__photo img {
+  border-radius: 50%;
+  width: 60px;
+}

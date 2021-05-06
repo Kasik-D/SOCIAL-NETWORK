@@ -1,0 +1,14 @@
+.main__profile__information {
+  padding-left: 40px;
+  color: #3f52a0;
+  font-family: "Poppins", sans-serif;
+}
+
+.main__profile__information__list {
+  list-style: none;
+  padding: 0px;
+}
+
+.main__profile__information__link {
+  font-size: 20px;
+}

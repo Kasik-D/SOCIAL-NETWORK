@@ -1,0 +1,10 @@
+.main__profile__logo {
+  width: 250px;
+}
+
+.main__profile__logo img {
+  max-width: 100%;
+  border-radius: 50%;
+  display: block;
+  border: 3px solid rgb(179, 63, 76);
+}
