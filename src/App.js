@@ -3,10 +3,10 @@ import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Massage from "./components/Massage/Massage";
-import Users from "./components/Users/Users";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import UsersContainer from "./components/Users/UsersContainer";
 
 function App(props) {
   return (
@@ -23,7 +23,7 @@ function App(props) {
               <Massage />
             </Route>
             <Route path="/Users">
-              <Users />
+              <UsersContainer />
             </Route>
             <Route path="/Music">
               <Music />
