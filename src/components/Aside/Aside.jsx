@@ -16,8 +16,8 @@ const Aside = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/News" className="sidebar__link">
-            News
+          <NavLink to="/Users" className="sidebar__link">
+            Users
           </NavLink>
         </li>
         <li>

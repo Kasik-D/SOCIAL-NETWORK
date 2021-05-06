@@ -3,7 +3,7 @@ import Aside from "./components/Aside/Aside";
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Massage from "./components/Massage/Massage";
-import News from "./components/News/News";
+import Users from "./components/Users/Users";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -22,8 +22,8 @@ function App(props) {
             <Route path="/Massages">
               <Massage />
             </Route>
-            <Route path="/News">
-              <News />
+            <Route path="/Users">
+              <Users />
             </Route>
             <Route path="/Music">
               <Music />
