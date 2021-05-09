@@ -1,10 +1,16 @@
 const follow = "follow";
 const unFollow = "unFollow";
 const SetUsers = "SetUsers";
+const SetPage = "SetPage";
+const SetTotalCount = "SetTotalCount";
+
 var _ = require("lodash");
 
 let initialState = {
   users: [],
+  pageSize: 5,
+  totalUsersCount: 0,
+  currentPage: 1,
 };
 
 const UsersReducer = (state = initialState, action) => {
@@ -20,6 +26,7 @@ const UsersReducer = (state = initialState, action) => {
       });
       break;
     }
+
     case unFollow: {
       newState.users = newState.users.map((user) => {
         if (user.id == action.id) {
@@ -33,7 +40,21 @@ const UsersReducer = (state = initialState, action) => {
     case SetUsers: {
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: [...action.users],
+      };
+    }
+
+    case SetPage: {
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+    }
+
+    case SetTotalCount: {
+      return {
+        ...state,
+        totalUsersCount: action.totalUsersCount,
       };
     }
   }
@@ -53,6 +74,16 @@ export const unFollowAC = (id) => ({
 export const setUserAC = (users) => ({
   type: SetUsers,
   users,
+});
+
+export const setPageAC = (currentPage) => ({
+  type: SetPage,
+  currentPage,
+});
+
+export const SetTotalCountAC = (totalUsersCount) => ({
+  type: SetTotalCount,
+  totalUsersCount,
 });
 
 export default UsersReducer;

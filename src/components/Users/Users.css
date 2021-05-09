@@ -5,8 +5,34 @@
   padding: 30px 10px 10px 40px;
 }
 
-.Users__container{
+.Users__container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.Users__pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.Users__page {
+  display: inline-block;
+  padding-left: 10px;
+  font-family: "Poppins", sans-serif;
+  color: #3f52a0;
+  font-size: 21px;
+  transition: 0.3s all ease;
+}
+
+.Users__page:hover {
+  color: rgb(179, 63, 76);
+}
+
+.selectedPage.Users__page {
+  font-weight: 800;
+  color: rgb(179, 63, 76);
 }
