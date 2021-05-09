@@ -1,11 +1,7 @@
 import "./Lacation.css";
 
 const Location = (props) => {
-  return (
-    <div className="Location">
-      {props.user.location.city}, {props.user.location.country}
-    </div>
-  );
+  return <div className="Location">Sumy, Ukraine</div>;
 };
 
 export default Location;

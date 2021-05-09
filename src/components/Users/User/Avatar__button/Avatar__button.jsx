@@ -5,8 +5,12 @@ import Button from "./Button/Button";
 const Avatar__button = (props) => {
   return (
     <div className="Avatar__button">
-      <Avatar />
-      <Button user={props.user} follow={props.follow} unFollow={props.unFollow}/>
+      <Avatar photos={props.photos} />
+      <Button
+        user={props.user}
+        follow={props.follow}
+        unFollow={props.unFollow}
+      />
     </div>
   );
 };
