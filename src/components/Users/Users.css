@@ -36,3 +36,7 @@
   font-weight: 800;
   color: rgb(179, 63, 76);
 }
+
+.isFetching {
+  display: none;
+}

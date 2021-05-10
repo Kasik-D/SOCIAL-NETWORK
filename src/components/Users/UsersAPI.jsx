@@ -3,13 +3,14 @@ import React from "react";
 import Users from "./Users";
 
 class UsersAPI extends React.Component {
-
   componentDidMount() {
+    this.props.SetFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`
       )
       .then((response) => {
+        this.props.SetFetching(false);
         this.props.setUsers(response.data.items);
         this.props.SetTotalCount(response.data.totalCount);
       });
@@ -17,11 +18,13 @@ class UsersAPI extends React.Component {
 
   onPageChanget(pageNumber) {
     this.props.setPage(pageNumber);
+    this.props.SetFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`
       )
       .then((response) => {
+        this.props.SetFetching(false);
         this.props.setUsers(response.data.items);
       });
   }
@@ -45,6 +48,7 @@ class UsersAPI extends React.Component {
         onPageChanget={this.onPageChanget.bind(this)}
         follow={this.props.follow}
         unFollow={this.props.unFollow}
+        isFetching={this.props.isFetching}
       />
     );
   }
