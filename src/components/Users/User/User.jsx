@@ -10,6 +10,7 @@ const User = (props) => {
         follow={props.follow}
         unFollow={props.unFollow}
         photos={props.user.photos}
+        id={props.user.id}
       />
       <About user={props.user} />
     </div>

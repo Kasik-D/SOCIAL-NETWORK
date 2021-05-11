@@ -1,11 +1,11 @@
 import "./User__photo.css";
 
-const User__photo = () => {
+const User__photo = (props) => {
   return (
-  <div className="main__profile__logo">
-    <img src="https://image.freepik.com/vecteurs-libre/homme-affaires-caractere-avatar-icone-vector-illustration-design_24877-18271.jpg"></img>
-  </div>
+    <div className="main__profile__logo">
+      <img src={props.photos.large == null? "/static/media/default__avatar.679dc983.png" : props.photos.large}></img>
+    </div>
   );
-}
+};
 
 export default User__photo;

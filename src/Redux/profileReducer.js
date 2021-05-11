@@ -1,5 +1,6 @@
 const addPost = "addPost";
 const changeProfileInput = "changeProfileInput";
+const SetProfileUser = "SetProfileUser";
 
 var _ = require("lodash");
 
@@ -19,6 +20,7 @@ const initialState = {
     },
   ],
   ProfileInput: "",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -36,6 +38,13 @@ const profileReducer = (state = initialState, action) => {
       newState.ProfileInput = action.text;
       break;
     }
+    case SetProfileUser: {
+      newState = {
+        ...state,
+        profile: action.profile,
+      };
+      break;
+    }
   }
   return newState;
 };
@@ -47,7 +56,14 @@ export const addPostActionCreator = () => {
 export const OnChangeProfileInputActionCreator = (text) => {
   return {
     type: changeProfileInput,
-    text: text,
+    text,
+  };
+};
+
+export const SetProfile = (profile) => {
+  return {
+    type: SetProfileUser,
+    profile,
   };
 };
 

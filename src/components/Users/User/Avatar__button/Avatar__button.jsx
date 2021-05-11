@@ -5,7 +5,7 @@ import Button from "./Button/Button";
 const Avatar__button = (props) => {
   return (
     <div className="Avatar__button">
-      <Avatar photos={props.photos} />
+      <Avatar photos={props.photos} id={props.id} />
       <Button
         user={props.user}
         follow={props.follow}
