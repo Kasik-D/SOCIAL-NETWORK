@@ -16,7 +16,7 @@ function App(props) {
         <Aside />
         <main className="main">
           <Switch>
-            <Route path="/Profile">
+            <Route path="/Profile/:userId?">
               <ProfileContainer />
             </Route>
             <Route path="/Massages">
