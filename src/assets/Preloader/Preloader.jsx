@@ -3,7 +3,7 @@ import PreloaderSVG from "./Rolling.svg";
 
 let Preloader = (props) => {
   return (
-    <div className="Preloader">
+    <div className={props.small ? "Preloader__small" : "Preloader"}>
       {props.isFetching ? <img src={PreloaderSVG} /> : null}
     </div>
   );

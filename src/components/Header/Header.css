@@ -4,10 +4,12 @@
   border-bottom: 3px solid rgb(179, 63, 76);
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
-.header__text{
-  font-family: "Noto Sans JP", sans-serif;
+.header__text {
+  font-family: "Poppins", sans-serif;
   color: rgb(179, 63, 76);
   text-transform: uppercase;
   text-align: center;
@@ -17,5 +19,28 @@
   margin: 0px;
   display: flex;
   align-self: center;
-  text-shadow: 1px 1px 3px #3F52A0;
+  text-shadow: 1px 1px 3px #3f52a0;
+  flex: 0.65 1;
+  justify-content: flex-end;
+}
+
+.login {
+  display: flex;
+  justify-content: flex-end;
+  flex: 0.35 1;
+  padding-right: 60px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(179, 63, 76);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.login a {
+  text-decoration: none;
+  color: rgb(179, 63, 76);
+}
+
+.login__preloader {
+  height: 50px;
 }

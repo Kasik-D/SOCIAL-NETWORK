@@ -1,4 +1,6 @@
+.Preloader {
+}
 
-.Preloader{
-    
+.Preloader__small img {
+  height: 60px;
 }
