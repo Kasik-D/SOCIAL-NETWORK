@@ -22,7 +22,6 @@ const UsersReducer = (state = initialState, action) => {
       newState.users = newState.users.map((user) => {
         if (user.id == action.id) {
           user.followed = true;
-          console.log(user.followed);
         }
         return user;
       });

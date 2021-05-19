@@ -1,38 +1,24 @@
-import axios from "axios";
 import React from "react";
+import { UserAPI } from "../../API/API";
 import Users from "./Users";
 
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.SetFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.SetFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.SetTotalCount(response.data.totalCount);
-      });
+    UserAPI.getUser(this.props.pageSize, this.props.currentPage).then((data) => {
+      this.props.SetFetching(false);
+      this.props.setUsers(data.items);
+      this.props.SetTotalCount(data.totalCount);
+    });
   }
 
   onPageChanget(pageNumber) {
     this.props.setPage(pageNumber);
     this.props.SetFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`,
-        {
-          withCredentials: true,
-        }
-      )
-      .then((response) => {
-        this.props.SetFetching(false);
-        this.props.setUsers(response.data.items);
-      });
+    UserAPI.getUser(this.props.pageSize, this.props.currentPage).then((data) => {
+      this.props.SetFetching(false);
+      this.props.setUsers(data.items);
+    });
   }
 
   render() {
