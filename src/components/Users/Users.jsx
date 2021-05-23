@@ -31,8 +31,9 @@ let Users = (props) => {
               <User
                 key={user.id}
                 user={user}
-                follow={props.follow}
-                unFollow={props.unFollow}
+                isFollowing={props.isFollowing}
+                unFollowThunk={props.unFollowThunk}
+                followThunk={props.followThunk}
               />
             );
           })}

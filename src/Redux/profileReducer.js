@@ -1,3 +1,4 @@
+import { ProfileAPI } from "../API/API";
 const addPost = "addPost";
 const changeProfileInput = "changeProfileInput";
 const SetProfileUser = "SetProfileUser";
@@ -64,6 +65,14 @@ export const SetProfile = (profile) => {
   return {
     type: SetProfileUser,
     profile,
+  };
+};
+
+export const GetProfileThunkAction = (userId) => {
+  return (dispatch) => {
+    ProfileAPI.Profile(userId).then((data) => {
+      dispatch(SetProfile(data));
+    });
   };
 };
 

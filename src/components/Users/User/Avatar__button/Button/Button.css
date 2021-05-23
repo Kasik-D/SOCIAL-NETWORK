@@ -8,12 +8,18 @@
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.User__unFoll__button{
-
+.User__foll__unFoll__button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-.User__foll__button{
+.User__unFoll__button {
+}
+
+.User__foll__button {
   margin: 10px 10px 0px;
 }

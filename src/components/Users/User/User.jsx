@@ -7,10 +7,11 @@ const User = (props) => {
     <div className="User">
       <Avatar__button
         user={props.user}
-        follow={props.follow}
-        unFollow={props.unFollow}
         photos={props.user.photos}
         id={props.user.id}
+        isFollowing={props.isFollowing}
+        unFollowThunk={props.unFollowThunk}
+        followThunk={props.followThunk}
       />
       <About user={props.user} />
     </div>

@@ -8,8 +8,9 @@ const Avatar__button = (props) => {
       <Avatar photos={props.photos} id={props.id} />
       <Button
         user={props.user}
-        follow={props.follow}
-        unFollow={props.unFollow}
+        isFollowing={props.isFollowing}
+        unFollowThunk={props.unFollowThunk}
+        followThunk={props.followThunk}
       />
     </div>
   );

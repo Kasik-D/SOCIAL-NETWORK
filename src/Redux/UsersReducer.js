@@ -1,9 +1,12 @@
+import { UserAPI } from "../API/API";
+
 const follow = "follow";
 const unFollow = "unFollow";
 const SetUsers = "SetUsers";
 const SetPage = "SetPage";
 const SetTotalCount = "SetTotalCount";
 const SetFetching = "SetFetching";
+const SetFollowing = "SetFollowing";
 
 var _ = require("lodash");
 
@@ -13,6 +16,7 @@ let initialState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: false,
+  isFollowing: [],
 };
 
 const UsersReducer = (state = initialState, action) => {
@@ -65,7 +69,17 @@ const UsersReducer = (state = initialState, action) => {
         isFetching: action.isFetching,
       };
     }
+
+    case SetFollowing: {
+      return {
+        ...state,
+        isFollowing: action.isFetching
+          ? [...state.isFollowing, action.userId]
+          : state.isFollowing.filter((id) => id != action.userId),
+      };
+    }
   }
+
   return newState;
 };
 
@@ -98,5 +112,46 @@ export const SetFetchingAC = (isFetching) => ({
   type: SetFetching,
   isFetching,
 });
+
+export const SetFollowingAC = (isFetching, userId) => ({
+  type: SetFollowing,
+  isFetching,
+  userId,
+});
+
+export const GetUsersThunkCreator = (pageSize, currentPage) => {
+  return (dispatch) => {
+    dispatch(SetFetchingAC(true));
+    UserAPI.getUser(pageSize, currentPage).then((data) => {
+      dispatch(SetFetchingAC(false));
+      dispatch(setUserAC(data.items));
+      dispatch(SetTotalCountAC(data.totalCount));
+    });
+  };
+};
+
+export const unFollowThunkCreator = (userId) => {
+  return (dispatch) => {
+    dispatch(SetFollowingAC(true, userId));
+    UserAPI.unFollowToUser(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(unFollowAC(userId));
+      }
+      dispatch(SetFollowingAC(false, userId));
+    });
+  };
+};
+
+export const followThunkCreator = (userId) => {
+  return (dispatch) => {
+    dispatch(SetFollowingAC(true, userId));
+    UserAPI.followToUser(userId).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(followAC(userId));
+      }
+      dispatch(SetFollowingAC(false, userId));
+    });
+  };
+};
 
 export default UsersReducer;

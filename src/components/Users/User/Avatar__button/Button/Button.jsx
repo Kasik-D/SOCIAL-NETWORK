@@ -1,17 +1,13 @@
 import "./Button.css";
-import { UserAPI } from "../../../../../API/API";
 
 const Button = (props) => {
   return (
     <div>
       {props.user.followed ? (
         <button
+          disabled={props.isFollowing.some((id) => id === props.user.id)}
           onClick={() => {
-            UserAPI.unFollowToUser(props.user.id).then((data) => {
-              if (data.resultCode === 0) {
-                props.unFollow(props.user.id);
-              }
-            });
+            props.unFollowThunk(props.user.id);
           }}
           className="User__unFoll__button User__foll__unFoll__button"
         >
@@ -19,13 +15,10 @@ const Button = (props) => {
         </button>
       ) : (
         <button
+          disabled={props.isFollowing.some((id) => id === props.user.id)}
           className="User__foll__button User__foll__unFoll__button"
           onClick={() => {
-            UserAPI.followToUser(props.user.id).then((data) => {
-              if (data.resultCode === 0) {
-                props.follow(props.user.id);
-              }
-            });
+            props.followThunk(props.user.id);
           }}
         >
           Follow

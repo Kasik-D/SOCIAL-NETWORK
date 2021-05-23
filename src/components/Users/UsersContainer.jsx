@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 import {
-  followAC,
-  SetFetchingAC,
   setPageAC,
   SetTotalCountAC,
-  setUserAC,
-  unFollowAC,
+  GetUsersThunkCreator,
+  unFollowThunkCreator,
+  followThunkCreator,
 } from "../../Redux/UsersReducer";
 import UsersAPI from "./UsersAPI";
 
@@ -16,28 +15,26 @@ let mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    isFollowing: state.usersPage.isFollowing,
   };
 };
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unFollow: (userId) => {
-      dispatch(unFollowAC(userId));
-    },
-    setUsers: (users) => {
-      dispatch(setUserAC(users));
-    },
     setPage: (currentPage) => {
       dispatch(setPageAC(currentPage));
     },
     SetTotalCount: (totalUsersCount) => {
       dispatch(SetTotalCountAC(totalUsersCount));
     },
-    SetFetching: (SetFetching) => {
-      dispatch(SetFetchingAC(SetFetching));
+    GetUsersThunk: (pageSize, currentPage) => {
+      dispatch(GetUsersThunkCreator(pageSize, currentPage));
+    },
+    unFollowThunk: (userId) => {
+      dispatch(unFollowThunkCreator(userId));
+    },
+    followThunk: (userId) => {
+      dispatch(followThunkCreator(userId));
     },
   };
 };
